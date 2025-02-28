@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react"; // Add React import here
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa"; // Modern hamburger and close icons
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 
 // Memoize the Navbar component to prevent unnecessary re-renders
 const Navbar = React.memo(({ scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate for navigation
 
   // Use useCallback for resize handler to prevent re-creation on every render
   const handleResize = useCallback(() => {
@@ -37,6 +39,12 @@ const Navbar = React.memo(({ scrollToSection }) => {
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
   }, []); // Empty dependency array since it only toggles state
+
+  // Use useCallback for handleEmployClick to prevent re-creation
+  const handleEmployClick = useCallback(() => {
+    navigate("/employ"); // Navigate to the Employ page using React Router
+    setIsMenuOpen(false); // Close mobile menu after navigation
+  }, [navigate]); // Depend on navigate for consistency
 
   // Animation variants for navigation items (defined outside for better performance)
   const navItemVariants = {
@@ -122,10 +130,7 @@ const Navbar = React.memo(({ scrollToSection }) => {
             className="ml-6"
           >
             <motion.button
-              onClick={() => {
-                window.location.href = "/employ";
-                setTimeout(() => {}, 0); // No-op to ensure event completion
-              }}
+              onClick={handleEmployClick} // Use the memoized handleEmployClick with useNavigate
               className="px-3 py-1 border !border-white rounded-lg text-white bg-[#013220] hover:bg-white hover:text-[#013220] transition animate-glow"
               whileHover={{ scale: 1.05 }} // Reduced scale for lighter performance
               whileTap={{ scale: 0.95 }}
@@ -220,10 +225,7 @@ const Navbar = React.memo(({ scrollToSection }) => {
                 transition={{ duration: 0.2, delay: 0.4 }} // Reduced duration and delay
               >
                 <motion.button
-                  onClick={() => {
-                    window.location.href = "/employ";
-                    setIsMenuOpen(false);
-                  }}
+                  onClick={handleEmployClick} // Use the memoized handleEmployClick with useNavigate
                   className="px-3 py-1 border !border-white rounded-lg text-white bg-[#013220] hover:bg-white hover:text-[#013220] transition animate-glow"
                   whileHover={{ scale: 1.05 }} // Reduced scale for lighter performance
                   whileTap={{ scale: 0.95 }}
@@ -237,8 +239,7 @@ const Navbar = React.memo(({ scrollToSection }) => {
         )}
       </AnimatePresence>
     </motion.nav>
-  );
-});
-
-// Export as default and memoize for performance
+  )
+})
+  // Export as default and memoize for performance
 export default Navbar;
