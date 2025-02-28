@@ -354,7 +354,7 @@ const Employ = React.memo(() => {
                 autoplay={true}
                 style={{ height: 100, width: 100 }} // Fixed size for consistency
               />
-              <p className="text-white text-sm md:text-base mt-2">
+              <p className="text-! text-sm md:text-base mt-2">
                 {popupType === "success"
                   ? "Form submitted successfully!"
                   : "Failed to submit form. Please try again."}
