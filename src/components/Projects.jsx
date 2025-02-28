@@ -6,7 +6,7 @@ import { FiExternalLink } from "react-icons/fi";
 
 // Import images (update paths as needed)
 import chatImage from "../assets/chat.png";
-import weatherAppImage from "../assets/weatherApp.jpg";
+import weatherAppImage from "../assets/WeatherApp.jpg";
 import agriCatImage from "../assets/AgriCat.png";
 import portfolioImage from "../assets/portfolio.png";
 
