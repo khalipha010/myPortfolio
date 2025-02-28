@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { PulseLoader } from "react-spinners"; // Import PulseLoader from react-spinners
 import Footer from "../components/Footer"; // Import Footer component
 import Lottie from "lottie-react"; // Import Lottie from lottie-react
-import ProgrammingAnimation from "../assets/Programming.json"; // Use the new Lottie file
+import ProgrammingAnimation from "../assets/temp.json"; // Use the new Lottie file
 import { db } from "../firebase"; // Import Firestore
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"; // Import Firestore functions
 import SuccessAnimation from "../assets/success.json"; // Add success Lottie file
