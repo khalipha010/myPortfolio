@@ -7,7 +7,7 @@ import { FiExternalLink } from "react-icons/fi";
 // Import images (update paths as needed)
 import chatImage from "../assets/chat.png";
 import weatherAppImage from "../assets/WeatherApp.jpg";
-import agriCatImage from "../assets/AgriCat.png";
+import examMasterImage from "../assets/ExamMaster.png";
 import portfolioImage from "../assets/portfolio.png";
 
 const projects = [
@@ -26,11 +26,11 @@ const projects = [
     live: "",
   },
   {
-    name: "Agri Catalyst Site",
-    image: agriCatImage,
+    name: "ExamMaster",
+    image: examMasterImage,
     technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />], // Fixed: FaReact is now imported
     github: "",
-    live: "https://www.agricatalystng.com/",
+    live: "https://exam-master-edu.vercel.app/",
   },
   {
     name: "Responsive Flutter Site",
