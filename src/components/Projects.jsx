@@ -29,7 +29,7 @@ const projects = [
     name: "ExamMaster",
     image: examMasterImage,
     technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />], // Fixed: FaReact is now imported
-    github: "",
+    github: "https://github.com/khalipha010/ExamMaster",
     live: "https://exam-master-edu.vercel.app/",
   },
   {
