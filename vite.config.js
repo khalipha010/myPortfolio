@@ -9,8 +9,4 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  build: {
-    outDir: 'dist', // Ensure output directory is 'dist'
-    assetsDir: 'assets', // Where static assets are stored
-  },
 });
