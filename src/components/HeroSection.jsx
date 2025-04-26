@@ -123,7 +123,7 @@ const Hero = ({ scrollToSection }) => {
           >
             {/* Resume Button with Link to Google Drive */}
             <motion.button
-              onClick={() => window.open("https://drive.google.com/file/d/1hJrxHlQ6uYUA2dYAbNbEn13prjKn8i--/view?usp=sharing")}
+              onClick={() => window.open("https://drive.google.com/file/d/1O-0YG7XKDxKOaR8T3BeOSM9dcdgaNYOm/view?usp=sharing", "_blank")}
               className="px-15! py-1 border !border-white rounded-lg text-white bg-[#013220] hover:bg-white hover:text-[#013220] transition relative overflow-hidden"
               style={{ fontFamily: "'Poppins', sans-serif" }}
               whileHover={{ scale: 1.05 }}
