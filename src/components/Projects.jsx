@@ -11,6 +11,7 @@ import weatherAppImage from "../assets/WeatherApp.jpg";
 import examMasterImage from "../assets/ExamMaster.png";
 import portfolioImage from "../assets/portfolio.png";
 import miniBlogImage from "../assets/MiniBlog.png";
+import myPortfolioImage from "../assets/MyPortfolio.png";
 
 const projects = [
   
@@ -28,6 +29,13 @@ const projects = [
     technologies: [<FaReact color="#61DAFB" />, <SiPostgresql color="#336791" />, <FaNodeJs color="#3C873A" />,], // Fixed: FaReact is now imported
     github: "https://github.com/khalipha010/mini-blog-frontend",
     live: "https://mini-blog-frontend-nine.vercel.app/",
+  },
+    {
+    name: "MyPortfolio",
+    image: myPortfolioImage,
+    technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />], // Fixed: FaReact is now imported
+    github: "https://github.com/khalipha010/myPortfolio",
+    live: "https://khaliphajibreel.vercel.app/",
   },
   
   {
