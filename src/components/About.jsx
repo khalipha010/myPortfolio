@@ -1,4 +1,4 @@
-mport React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { FaReact, FaJs, FaPython, FaFigma, FaNodeJs, FaGit, FaHtml5, FaCss3, FaBootstrap} from "react-icons/fa";
 import { SiFlutter, SiTailwindcss, SiFirebase, SiPostgresql, SiNextdotjs} from "react-icons/si";
