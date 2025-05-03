@@ -1,16 +1,35 @@
 import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { FaReact, FaGithub } from "react-icons/fa"; // Fixed: Added FaReact
-import { SiFirebase, SiDart, SiFlutter } from "react-icons/si";
+import { FaReact, FaGithub, FaNodeJs } from "react-icons/fa";
+import { SiFirebase, SiDart, SiFlutter, SiPostgresql } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
+
 
 // Import images (update paths as needed)
 import chatImage from "../assets/chat.png";
 import weatherAppImage from "../assets/WeatherApp.jpg";
 import examMasterImage from "../assets/ExamMaster.png";
 import portfolioImage from "../assets/portfolio.png";
+import miniBlogImage from "../assets/MiniBlog.png";
 
 const projects = [
+  
+    {
+    name: "ExamMaster",
+    image: examMasterImage,
+    technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />], // Fixed: FaReact is now imported
+    github: "https://github.com/khalipha010/ExamMaster",
+    live: "https://exam-master-edu.vercel.app/",
+  },
+  
+  {
+    name: "MiniBlog",
+    image: miniBlogImage,
+    technologies: [<FaReact color="#61DAFB" />, <SiPostgresql color="#336791" />, <FaNodeJs color="#3C873A" />,], // Fixed: FaReact is now imported
+    github: "https://github.com/khalipha010/mini-blog-frontend",
+    live: "https://mini-blog-frontend-nine.vercel.app/",
+  },
+  
   {
     name: "Chat App",
     image: chatImage,
@@ -25,13 +44,7 @@ const projects = [
     github: "https://github.com/khalipha010/World-Time-App",
     live: "",
   },
-  {
-    name: "ExamMaster",
-    image: examMasterImage,
-    technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />], // Fixed: FaReact is now imported
-    github: "https://github.com/khalipha010/ExamMaster",
-    live: "https://exam-master-edu.vercel.app/",
-  },
+
   {
     name: "Responsive Flutter Site",
     image: portfolioImage,
