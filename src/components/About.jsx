@@ -1,7 +1,10 @@
-import React, { useState, useCallback, useMemo } from "react";
-import { motion } from "framer-motion";
-import { FaReact, FaJs, FaPython, FaFigma, FaNodeJs, FaGit, FaHtml5, FaCss3, FaBootstrap } from "react-icons/fa";
-import { SiFlutter, SiTailwindcss, SiFirebase } from "react-icons/si";
+import {
+  FaReact, FaJs, FaPython, FaFigma, FaNodeJs, FaGit,
+  FaHtml5, FaCss3, FaBootstrap
+} from "react-icons/fa";
+import {
+  SiFlutter, SiTailwindcss, SiFirebase, SiPostgresql, SiNextdotjs
+} from "react-icons/si";
 import MeKhaImage from "../assets/MeKha.jpg"; // Your imported image
 
 // Memoize the AboutMe component to prevent unnecessary re-renders
@@ -63,20 +66,22 @@ const AboutMe = React.memo(() => {
   }), []); // Empty dependency array since it’s static
 
   // Memoize skills icons for performance
-  const skillsIcons = useMemo(() => [
-    <FaReact key="react" className="text-[#61DAFB] hover:text-[#4fa3c7] transition-colors" title="React" />,
-    <SiFlutter key="flutter" className="text-[#02569B] hover:text-[#013a6b] transition-colors" title="Flutter" />,
-    <FaJs key="js" className="text-[#F7DF1E] hover:text-[#d6b90d] transition-colors" title="JavaScript" />,
-    <FaPython key="python" className="text-[#3776AB] hover:text-[#2a5a82] transition-colors" title="Python" />,
-    <FaFigma key="figma" className="text-[#F24E1E] hover:text-[#c93d17] transition-colors" title="Figma" />,
-    <FaNodeJs key="nodejs" className="text-[#68A063] hover:text-[#4f7a4b] transition-colors" title="Node.js" />,
-    <FaGit key="git" className="text-[#F05032] hover:text-[#c23d24] transition-colors" title="Git" />,
-    <FaHtml5 key="html" className="text-[#E34F26] hover:text-[#c23d17] transition-colors" title="HTML" />,
-    <FaCss3 key="css" className="text-[#1572B6] hover:text-[#115293] transition-colors" title="CSS" />,
-    <FaBootstrap key="bootstrap" className="text-[#7952B3] hover:text-[#5e3d8c] transition-colors" title="Bootstrap" />,
-    <SiTailwindcss key="tailwind" className="text-[#38B2AC] hover:text-[#2c8580] transition-colors" title="TailwindCSS" />,
-    <SiFirebase key="firebase" className="text-[#FFCA28] hover:text-[#e6b425] transition-colors" title="Firebase" />,
-  ], []); // Empty dependency array since icons are static
+ const skillsIcons = useMemo(() => [
+  <FaReact key="react" className="text-[#61DAFB] hover:text-[#4fa3c7] transition-colors" title="React" />,
+  <SiNextdotjs key="nextjs" className="text-black dark:text-white hover:text-gray-500 transition-colors" title="Next.js" />,
+  <SiFlutter key="flutter" className="text-[#02569B] hover:text-[#013a6b] transition-colors" title="Flutter" />,
+  <FaJs key="js" className="text-[#F7DF1E] hover:text-[#d6b90d] transition-colors" title="JavaScript" />,
+  <FaPython key="python" className="text-[#3776AB] hover:text-[#2a5a82] transition-colors" title="Python" />,
+  <FaFigma key="figma" className="text-[#F24E1E] hover:text-[#c93d17] transition-colors" title="Figma" />,
+  <FaNodeJs key="nodejs" className="text-[#68A063] hover:text-[#4f7a4b] transition-colors" title="Node.js" />,
+  <SiPostgresql key="postgresql" className="text-[#336791] hover:text-[#274e71] transition-colors" title="PostgreSQL" />,
+  <FaGit key="git" className="text-[#F05032] hover:text-[#c23d24] transition-colors" title="Git" />,
+  <FaHtml5 key="html" className="text-[#E34F26] hover:text-[#c23d17] transition-colors" title="HTML" />,
+  <FaCss3 key="css" className="text-[#1572B6] hover:text-[#115293] transition-colors" title="CSS" />,
+  <FaBootstrap key="bootstrap" className="text-[#7952B3] hover:text-[#5e3d8c] transition-colors" title="Bootstrap" />,
+  <SiTailwindcss key="tailwind" className="text-[#38B2AC] hover:text-[#2c8580] transition-colors" title="TailwindCSS" />,
+  <SiFirebase key="firebase" className="text-[#FFCA28] hover:text-[#e6b425] transition-colors" title="Firebase" />,
+], []); // Empty dependency array since icons are static
 
   return (
     <section
