@@ -36,7 +36,7 @@ const projects = [
     image: bizCoachImage,
     technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />], // Fixed: FaReact is now imported
     github: "https://github.com/khalipha010/bizcoach-ai",
-    live: "https://https://bizcoach-ai.vercel.app/",
+    live: "https://bizcoach-ai.vercel.app/",
   },
   
     {
