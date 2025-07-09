@@ -12,6 +12,7 @@ import examMasterImage from "../assets/ExamMaster.png";
 import portfolioImage from "../assets/portfolio.png";
 import miniBlogImage from "../assets/MiniBlog.png";
 import myPortfolioImage from "../assets/MyPortfolio.png";
+import bizCoachImage from "../assets/BizCoach.png";
 
 const projects = [
   
@@ -30,6 +31,14 @@ const projects = [
     github: "https://github.com/khalipha010/mini-blog-frontend",
     live: "https://mini-blog-frontend-nine.vercel.app/",
   },
+   {
+    name: "BizCoach",
+    image: bizCoachImage,
+    technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />], // Fixed: FaReact is now imported
+    github: "https://github.com/khalipha010/bizcoach-ai",
+    live: "https://https://bizcoach-ai.vercel.app/",
+  },
+  
     {
     name: "MyPortfolio",
     image: myPortfolioImage,
