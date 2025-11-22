@@ -48,7 +48,7 @@ const Hero = ({ scrollToSection }) => {
   return (
     <>
       <section
-        className="flex flex-col justify-start md:justify-center min-h-[70vh] md:min-h-screen w-full px-6 text-white bg-gradient-to-br from-[#0a1f1a] via-[#001f14] to-[#0a1f1a] pt-40 md:pt-32 relative overflow-hidden"
+        className="flex flex-col justify-start md:justify-center min-h-[70vh] md:min-h-screen w-full px-6 pb-16 md:pb-20 text-white bg-gradient-to-br from-[#0a1f1a] via-[#001f14] to-[#0a1f1a] pt-40 md:pt-32 relative overflow-hidden"
         style={{ fontFamily: "'Poppins', sans-serif" }}
         onClick={handleInteraction}
         onMouseMove={handleInteraction}
