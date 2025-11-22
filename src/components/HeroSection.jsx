@@ -6,12 +6,12 @@ const Hero = ({ scrollToSection }) => {
 
   const getRandomGradient = () => {
     const colors = [
-      "rgba(255, 105, 180, 0.8)", // Pink
-      "rgba(0, 191, 255, 0.8)", // Light Blue
-      "rgba(255, 215, 0, 0.8)", // Gold
-      "rgba(50, 205, 50, 0.8)", // Lime Green
-      "rgba(147, 112, 219, 0.8)", // Medium Purple
-      "rgba(255, 69, 0, 0.8)", // Red-Orange
+      "rgba(16, 185, 129, 0.8)", // Emerald
+      "rgba(20, 184, 166, 0.8)", // Teal
+      "rgba(34, 197, 94, 0.8)", // Green
+      "rgba(59, 130, 246, 0.8)", // Blue
+      "rgba(168, 85, 247, 0.8)", // Purple
+      "rgba(236, 72, 153, 0.8)", // Pink
     ];
     const color1 = colors[Math.floor(Math.random() * colors.length)];
     const color2 = colors[Math.floor(Math.random() * colors.length)];
@@ -48,7 +48,7 @@ const Hero = ({ scrollToSection }) => {
   return (
     <>
       <section
-        className="flex flex-col justify-start md:justify-center min-h-[70vh] md:min-h-screen w-full px-6 text-white bg-[#013220] pt-40! md:pt-32! relative overflow-hidden"
+        className="flex flex-col justify-start md:justify-center min-h-[70vh] md:min-h-screen w-full px-6 text-white bg-gradient-to-br from-[#0a1f1a] via-[#001f14] to-[#0a1f1a] pt-40 md:pt-32 relative overflow-hidden"
         style={{ fontFamily: "'Poppins', sans-serif" }}
         onClick={handleInteraction}
         onMouseMove={handleInteraction}
@@ -68,9 +68,15 @@ const Hero = ({ scrollToSection }) => {
           />
         ))}
 
-        <div className="max-w-4xl mx-auto w-full mt-8 md:mt-0">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto w-full mt-8 md:mt-0 relative z-10">
           <motion.h1
-            className="!text-xl !md:text-2xl font-semibold text-left hover:bg-gradient-to-r hover:from-green-400 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition-all duration-500"
+            className="text-xl md:text-2xl font-semibold text-left bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent animate-gradient"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -79,35 +85,35 @@ const Hero = ({ scrollToSection }) => {
           </motion.h1>
 
           <motion.h2
-            className="text-5xl md:text-7xl font-bold mt-5 text-green-400 text-left hover:bg-gradient-to-r hover:from-green-400 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition-all duration-500"
+            className="text-5xl md:text-7xl font-bold mt-5 text-left bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent animate-gradient"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1, delay: 0.3 }}
           >
             Khalipha Jibreel
           </motion.h2>
 
           <motion.p
-            className="text-4xl md:text-6xl font-bold mt-5 text-left text-white hover:bg-gradient-to-r hover:from-green-400 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition-all duration-500"
+            className="text-4xl md:text-6xl font-bold mt-5 text-left text-white/90"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.8 }}
+            transition={{ duration: 1.2, delay: 0.6 }}
           >
             I give life to your ideas
           </motion.p>
 
           <motion.p
-            className="!text-xl !md:text-3xl mt-8 text-left text-gray-300 leading-relaxed mr-4 md:mr-0"
+            className="text-xl md:text-2xl mt-8 text-left text-gray-300 leading-relaxed max-w-3xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, delay: 1 }}
+            transition={{ duration: 1.4, delay: 0.9 }}
           >
-            I’m a passionate developer skilled in{" "}
-            <span className="font-semibold text-green-400 hover:bg-gradient-to-r hover:from-green-400 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition-all duration-500">
+            I'm a passionate developer skilled in{" "}
+            <span className="font-semibold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
               React
             </span>{" "}
             and{" "}
-            <span className="font-semibold text-teal-400 hover:bg-gradient-to-r hover:from-green-400 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition-all duration-500">
+            <span className="font-semibold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
               Flutter
             </span>
             , dedicated to crafting visually captivating mobile apps and websites. With a keen eye for design and a love for
@@ -116,42 +122,48 @@ const Hero = ({ scrollToSection }) => {
           </motion.p>
 
           <motion.div
-            className="mt-8 flex space-x-4 justify-start md:justify-normal"
+            className="mt-10 flex flex-wrap gap-4 justify-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
-            {/* Resume Button with Link to Google Drive */}
+            {/* Resume Button with Enhanced Glassmorphism */}
             <motion.button
               onClick={() => window.open("https://drive.google.com/file/d/1O-0YG7XKDxKOaR8T3BeOSM9dcdgaNYOm/view?usp=sharing", "_blank")}
-              className="px-15! py-1 border !border-white rounded-lg text-white bg-[#013220] hover:bg-white hover:text-[#013220] transition relative overflow-hidden"
+              className="px-8 py-3 glass-strong rounded-xl text-white font-medium hover:bg-white/10 transition-all duration-300 relative overflow-hidden group"
               style={{ fontFamily: "'Poppins', sans-serif" }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              aria-label="View Resume"
             >
-              {/* Constant Shine Effect */}
+              {/* Animated Border Gradient */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm"></div>
+
+              {/* Shine Effect */}
               <motion.span
                 className="absolute top-0 left-0 w-full h-full shine-effect"
                 initial={{ x: "-150%" }}
                 animate={{ x: "150%" }}
                 transition={{
-                  duration: 1.5,
+                  duration: 2,
                   ease: "linear",
-                  repeat: Infinity, // Infinite loop
+                  repeat: Infinity,
                   repeatType: "loop",
                 }}
               />
-              Resume
+              <span className="relative z-10">View Resume</span>
             </motion.button>
 
-            {/* Contact Button with Scroll Animation */}
+            {/* Contact Button with Gradient */}
             <motion.button
-              onClick={() => scrollToSection("contact")} // Smooth scroll to Contact section
-              className="px-15! py-2 border border-[#013220] rounded-lg text-[#013220] bg-white hover:bg-[#013220] hover:text-white hover:!border-white transition duration-300"
+              onClick={() => scrollToSection("contact")}
+              className="px-8 py-3 rounded-xl font-medium bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 shadow-lg shadow-emerald-500/30"
               style={{ fontFamily: "'Poppins', sans-serif" }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              aria-label="Contact Me"
             >
-              Contact
+              Get In Touch
             </motion.button>
           </motion.div>
         </div>
@@ -163,7 +175,7 @@ const Hero = ({ scrollToSection }) => {
           background: linear-gradient(
             120deg,
             rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0.3) 50%,
             rgba(255, 255, 255, 0) 100%
           );
           width: 60%;
@@ -173,10 +185,6 @@ const Hero = ({ scrollToSection }) => {
           transform: skewX(-20deg);
           pointer-events: none;
           z-index: 0;
-        }
-        button {
-          position: relative;
-          z-index: 1;
         }
       `}</style>
     </>

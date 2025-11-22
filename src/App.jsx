@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Employ from "./Pages/Employ";
 import AdminLogin from "./Pages/AdminLogin";
 import AdminDashboard from "./Pages/AdminDashboard";
+import NotFound from "./Pages/NotFound";
 import ErrorBoundary from "./components/ErrorBoundary"; // Import ErrorBoundary
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
         <Route path="/employ" element={<Employ />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/admindashboard" element={<AdminDashboard />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </ErrorBoundary>
   </Router>
