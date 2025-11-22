@@ -126,26 +126,32 @@ const AboutMe = React.memo(() => {
         >
           {/* Bio Card - Large Square (2x2) */}
           <motion.div
-            className="md:col-span-2 md:row-span-2 glass p-8 rounded-3xl border border-white/10 hover:border-emerald-500/30 transition-all duration-300 flex flex-col justify-center relative overflow-hidden group"
+            className="md:col-span-2 md:row-span-2 glass p-8 rounded-3xl border border-white/10 hover:border-emerald-500/50 transition-all duration-500 flex flex-col justify-center relative overflow-hidden group"
             variants={itemVariants}
+            whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(16, 185, 129, 0.2)" }}
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:bg-emerald-500/20" />
+            {/* Decorative corner accents */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-emerald-500/20 to-transparent rounded-bl-full -mr-8 -mt-8 transition-all duration-500 group-hover:from-emerald-500/30" />
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-teal-500/20 to-transparent rounded-tr-full -ml-8 -mb-8 transition-all duration-500 group-hover:from-teal-500/30" />
 
-            <h3 className="text-3xl font-bold text-white mb-6">Who I Am</h3>
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+            <h3 className="text-3xl font-bold text-white mb-6 relative z-10">Who I Am</h3>
+            <p className="text-gray-300 text-lg leading-relaxed mb-6 relative z-10">
               I am <span className="text-emerald-400 font-semibold">Khalipha Jibreel</span>, a computer wizard passionate about crafting digital experiences.
               I specialize in building accessible, pixel-perfect, and performant web and mobile applications.
             </p>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-gray-300 text-lg leading-relaxed relative z-10">
               My journey involves a deep dive into <span className="text-emerald-400">React ecosystem</span> and <span className="text-emerald-400">Flutter</span>, constantly pushing the boundaries of what's possible on the web.
             </p>
           </motion.div>
 
           {/* Image Card - Tall (1x2) */}
           <motion.div
-            className="md:col-span-1 md:row-span-2 glass p-2 rounded-3xl border border-white/10 flex items-center justify-center relative group overflow-hidden"
+            className="md:col-span-1 md:row-span-2 glass p-2 rounded-3xl border border-white/10 hover:border-emerald-500/50 flex items-center justify-center relative group overflow-hidden"
             variants={itemVariants}
+            whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(16, 185, 129, 0.2)" }}
           >
+            {/* Animated border gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 via-teal-500/0 to-emerald-500/0 group-hover:from-emerald-500/10 group-hover:via-teal-500/10 group-hover:to-emerald-500/10 rounded-3xl transition-all duration-700" />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 z-10" />
             <div className="relative w-full h-full rounded-2xl overflow-hidden">
               <img
@@ -156,56 +162,92 @@ const AboutMe = React.memo(() => {
             </div>
           </motion.div>
 
-          {/* Frontend Skills - Wide (2x1) */}
+          {/* Frontend Skills - Tall (1x2) */}
           <motion.div
-            className="md:col-span-1 md:row-span-2 glass p-6 rounded-3xl border border-white/10 hover:border-emerald-500/30 transition-all duration-300 flex flex-col"
+            className="md:col-span-1 md:row-span-2 glass p-6 rounded-3xl border border-white/10 hover:border-emerald-500/50 transition-all duration-500 flex flex-col relative overflow-hidden group"
             variants={itemVariants}
+            whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(16, 185, 129, 0.2)" }}
           >
-            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            {/* Decorative accent */}
+            <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-emerald-500/20 to-transparent rounded-br-full -ml-8 -mt-8 transition-all duration-500 group-hover:from-emerald-500/30" />
+
+            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2 relative z-10">
               <span className="text-emerald-400">⚡</span> Frontend
             </h4>
-            <div className="flex flex-wrap gap-3">
-              {skillCategories.frontend.map((skill) => (
-                <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors">
+            <div className="flex flex-wrap gap-3 relative z-10">
+              {skillCategories.frontend.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300 hover:bg-white/10 hover:text-white hover:border-emerald-500/30 transition-all duration-300 cursor-default"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                >
                   <span style={{ color: skill.color }}>{skill.icon}</span>
                   {skill.name}
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
           {/* Backend Skills - Wide (2x1) */}
           <motion.div
-            className="md:col-span-2 md:row-span-1 glass p-6 rounded-3xl border border-white/10 hover:border-emerald-500/30 transition-all duration-300"
+            className="md:col-span-2 md:row-span-1 glass p-6 rounded-3xl border border-white/10 hover:border-emerald-500/50 transition-all duration-500 relative overflow-hidden group"
             variants={itemVariants}
+            whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(16, 185, 129, 0.2)" }}
           >
-            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            {/* Decorative accent */}
+            <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-teal-500/20 to-transparent rounded-tl-full -mr-8 -mb-8 transition-all duration-500 group-hover:from-teal-500/30" />
+
+            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2 relative z-10">
               <span className="text-emerald-400">🛠️</span> Backend & Database
             </h4>
-            <div className="flex flex-wrap gap-3">
-              {skillCategories.backend.map((skill) => (
-                <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors">
+            <div className="flex flex-wrap gap-3 relative z-10">
+              {skillCategories.backend.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300 hover:bg-white/10 hover:text-white hover:border-emerald-500/30 transition-all duration-300 cursor-default"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                >
                   <span style={{ color: skill.color }}>{skill.icon}</span>
                   {skill.name}
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
           {/* Tools - Wide (2x1) */}
           <motion.div
-            className="md:col-span-2 md:row-span-1 glass p-6 rounded-3xl border border-white/10 hover:border-emerald-500/30 transition-all duration-300"
+            className="md:col-span-2 md:row-span-1 glass p-6 rounded-3xl border border-white/10 hover:border-emerald-500/50 transition-all duration-500 relative overflow-hidden group"
             variants={itemVariants}
+            whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(16, 185, 129, 0.2)" }}
           >
-            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            {/* Decorative accent */}
+            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-emerald-500/20 to-transparent rounded-bl-full -mr-8 -mt-8 transition-all duration-500 group-hover:from-emerald-500/30" />
+
+            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2 relative z-10">
               <span className="text-emerald-400">⚙️</span> Tools & DevOps
             </h4>
-            <div className="flex flex-wrap gap-3">
-              {skillCategories.tools.map((skill) => (
-                <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors">
+            <div className="flex flex-wrap gap-3 relative z-10">
+              {skillCategories.tools.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-sm text-gray-300 hover:bg-white/10 hover:text-white hover:border-emerald-500/30 transition-all duration-300 cursor-default"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                >
                   <span style={{ color: skill.color }}>{skill.icon}</span>
                   {skill.name}
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
