@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+﻿import React, { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { PulseLoader } from "react-spinners"; // Import PulseLoader from react-spinners
@@ -44,7 +44,7 @@ const Employ = React.memo(() => {
     const loadingTimeout = setTimeout(() => {
       navigate("/");
       setIsLoading(false); // Hide loading after navigation
-    }, 6000); // Note: 6000ms (6 seconds) is unusually long—consider reducing for better UX (e.g., 500ms)
+    }, 6000); // Note: 6000ms (6 seconds) is unusually longΓÇöconsider reducing for better UX (e.g., 500ms)
 
     return () => clearTimeout(loadingTimeout);
   }, [navigate]); // Depend on navigate for consistency
@@ -127,7 +127,7 @@ const Employ = React.memo(() => {
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }} // Faster transition
           >
-            ← Back to Home
+            ΓåÉ Back to Home
           </motion.button>
 
           {/* Loading Animation for Back Navigation (overlay) */}
@@ -163,7 +163,7 @@ const Employ = React.memo(() => {
                   Why Hire Me?
                 </h1>
                 <p className="text-base md:text-lg">
-                  I am a passionate and skilled developer with expertise in modern web and mobile app development. I deliver high-quality, scalable, and user-friendly solutions tailored to your needs. Let’s work together to bring your ideas to life!
+                  I am a passionate and skilled developer with expertise in modern web and mobile app development. I deliver high-quality, scalable, and user-friendly solutions tailored to your needs. LetΓÇÖs work together to bring your ideas to life!
                 </p>
               </motion.div>
 
