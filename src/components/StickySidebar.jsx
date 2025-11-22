@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { FaTwitter, FaLinkedin, FaGithub, FaFacebook } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const StickySidebar = React.memo(() => {
   const [isDesktop, setIsDesktop] = useState(false);
+  const { scrollY } = useScroll();
+
+  // Fade out when scrolling past ~400px (end of hero section)
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,7 +33,8 @@ const StickySidebar = React.memo(() => {
   return (
     <>
       {/* Left Sidebar: Social Media Icons */}
-      <div
+      <motion.div
+        style={{ opacity }}
         className={`fixed top-1/2 left-4 transform -translate-y-1/2 z-10 ${isDesktop ? "block" : "hidden"
           }`}
       >
@@ -93,10 +98,11 @@ const StickySidebar = React.memo(() => {
             <FaGithub />
           </motion.a>
         </div>
-      </div>
+      </motion.div>
 
       {/* Right Sidebar: Email */}
-      <div
+      <motion.div
+        style={{ opacity }}
         className={`fixed top-1/2 right-4 transform -translate-y-1/2 z-10 ${isDesktop ? "block" : "hidden"
           }`}
       >
@@ -122,7 +128,7 @@ const StickySidebar = React.memo(() => {
             KhaliphaJibreel@gmail.com
           </motion.a>
         </div>
-      </div>
+      </motion.div>
 
       <style>{`
         @media (max-width: 767px) {
