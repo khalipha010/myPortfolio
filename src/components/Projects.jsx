@@ -13,6 +13,7 @@ import portfolioImage from "../assets/portfolio.png";
 import miniBlogImage from "../assets/MiniBlog.png";
 import myPortfolioImage from "../assets/MyPortfolio.png";
 import bizCoachImage from "../assets/BizCoach.png";
+import jobTracker from "../assets/jobTracker.png";
 
 const projects = [
   
@@ -37,6 +38,14 @@ const projects = [
     technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />], // Fixed: FaReact is now imported
     github: "https://github.com/khalipha010/bizcoach-ai",
     live: "https://bizcoach-ai.vercel.app/",
+  },
+
+    {
+    name: "JobTracker",
+    image: jobTracker,
+    technologies: [<FaReact color="#61DAFB" />, <SiPostgresql color="#336791" />, <FaNodeJs color="#3C873A" />,], // Fixed: FaReact is now imported
+    github: "https://github.com/khalipha010/jobtracker_frontend",
+    live: "https://jobtracker-frontend-eta.vercel.app/",
   },
   
     {
