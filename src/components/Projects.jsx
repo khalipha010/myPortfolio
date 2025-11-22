@@ -169,8 +169,8 @@ const ProjectCard = ({ project, index }) => {
         <div className="flex items-center justify-between">
           <div className="flex gap-3">
             {project.technologies.map((tech, i) => (
-              <div key={i} className="bg-white/10 p-2 rounded-full backdrop-blur-md">
-                {React.cloneElement(tech, { size: 18 })}
+              <div key={i} className="bg-black/60 p-2 rounded-full backdrop-blur-md border border-white/20">
+                {React.cloneElement(tech, { size: 18, color: "#ffffff" })}
               </div>
             ))}
           </div>
@@ -181,10 +181,10 @@ const ProjectCard = ({ project, index }) => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 rounded-full hover:bg-emerald-500 hover:text-white transition-colors backdrop-blur-md"
+                className="p-2 bg-black/60 rounded-full hover:bg-emerald-500 hover:text-white transition-colors backdrop-blur-md border border-white/20"
                 aria-label="View Source Code"
               >
-                <FaGithub size={20} />
+                <FaGithub size={20} color="#ffffff" />
               </a>
             )}
             {project.live && (
@@ -192,10 +192,10 @@ const ProjectCard = ({ project, index }) => {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 rounded-full hover:bg-emerald-500 hover:text-white transition-colors backdrop-blur-md"
+                className="p-2 bg-black/60 rounded-full hover:bg-emerald-500 hover:text-white transition-colors backdrop-blur-md border border-white/20"
                 aria-label="View Live Demo"
               >
-                <FiExternalLink size={20} />
+                <FiExternalLink size={20} color="#ffffff" />
               </a>
             )}
           </div>
