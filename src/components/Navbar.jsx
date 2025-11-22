@@ -111,11 +111,11 @@ const Navbar = React.memo(({ scrollToSection }) => {
           <li>
             <motion.button
               onClick={handleEmployClick}
-              className="px-6 py-2 rounded-lg border border-emerald-400 text-emerald-400 font-medium hover:bg-emerald-400/10 transition-all duration-300"
+              className="px-6 py-2 rounded-lg border border-emerald-400 text-emerald-400 font-medium hover:bg-emerald-400/10 transition-all duration-300 relative overflow-hidden animate-glow-button"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Employ Me
+              <span className="relative z-10">Employ Me</span>
             </motion.button>
           </li>
         </ul>
@@ -163,7 +163,7 @@ const Navbar = React.memo(({ scrollToSection }) => {
               >
                 <motion.button
                   onClick={handleEmployClick}
-                  className="px-8 py-3 rounded-xl border-2 border-emerald-400 text-emerald-400 font-bold text-lg hover:bg-emerald-400/10 transition-colors"
+                  className="px-8 py-3 rounded-xl border-2 border-emerald-400 text-emerald-400 font-bold text-lg hover:bg-emerald-400/10 transition-colors animate-glow-button"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -174,6 +174,34 @@ const Navbar = React.memo(({ scrollToSection }) => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Glow Animation Styles */}
+      <style>{`
+        @keyframes glow-pulse {
+          0%, 100% {
+            box-shadow: 0 0 5px rgba(16, 185, 129, 0.5),
+                        0 0 10px rgba(16, 185, 129, 0.3),
+                        0 0 15px rgba(16, 185, 129, 0.2);
+          }
+          50% {
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.8),
+                        0 0 20px rgba(16, 185, 129, 0.5),
+                        0 0 30px rgba(16, 185, 129, 0.3),
+                        0 0 40px rgba(16, 185, 129, 0.2);
+          }
+        }
+        
+        .animate-glow-button {
+          animation: glow-pulse 2s ease-in-out infinite;
+        }
+        
+        .animate-glow-button:hover {
+          box-shadow: 0 0 15px rgba(16, 185, 129, 1),
+                      0 0 30px rgba(16, 185, 129, 0.7),
+                      0 0 45px rgba(16, 185, 129, 0.5),
+                      0 0 60px rgba(16, 185, 129, 0.3);
+        }
+      `}</style>
     </motion.nav>
   );
 });

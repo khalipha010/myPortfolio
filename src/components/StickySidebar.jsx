@@ -1,30 +1,25 @@
-import React, { useEffect, useState } from "react"; // Added useEffect and useState for dynamic handling
+import React, { useEffect, useState } from "react";
 import { FaTwitter, FaLinkedin, FaGithub, FaFacebook } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-// Memoize the StickySidebar component to prevent unnecessary re-renders
 const StickySidebar = React.memo(() => {
   const [isDesktop, setIsDesktop] = useState(false);
 
-  // Use useEffect to dynamically check screen width and handle "Desktop site" on mobile
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 768); // 768px is the breakpoint for md in Tailwind
+      setIsDesktop(window.innerWidth >= 768);
     };
 
-    // Set initial value
     handleResize();
 
-    // Add event listener for window resize with debouncing
     let timeoutId;
     const debouncedResize = () => {
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(handleResize, 100); // Debounce with 100ms delay to reduce performance impact
+      timeoutId = setTimeout(handleResize, 100);
     };
 
     window.addEventListener("resize", debouncedResize);
 
-    // Cleanup event listener
     return () => {
       window.removeEventListener("resize", debouncedResize);
       clearTimeout(timeoutId);
@@ -33,16 +28,15 @@ const StickySidebar = React.memo(() => {
 
   return (
     <>
-      {/* Left Sidebar: Social Media Icons with Vertical Line (Desktop Only, Responsive) */}
+      {/* Left Sidebar: Social Media Icons */}
       <div
-        className={`fixed top-1/2 left-4 transform -translate-y-1/2 z-40 ${
-          isDesktop ? "block" : "hidden"
-        }`}
+        className={`fixed top-1/2 left-4 transform -translate-y-1/2 z-10 ${isDesktop ? "block" : "hidden"
+          }`}
       >
         <div className="relative flex flex-col items-center space-y-3">
           {/* Vertical Line */}
           <div
-            className="absolute left-1/2 transform -translate-x-1/2 w-[1px]" // Simplified to Tailwind class
+            className="absolute left-1/2 transform -translate-x-1/2 w-[1px]"
             style={{
               height: "55vh",
               top: "25vh",
@@ -101,16 +95,15 @@ const StickySidebar = React.memo(() => {
         </div>
       </div>
 
-      {/* Right Sidebar: Email with Vertical Line (Desktop Only, Responsive) */}
+      {/* Right Sidebar: Email */}
       <div
-        className={`fixed top-1/2 right-4 transform -translate-y-1/2 z-40 ${
-          isDesktop ? "block" : "hidden"
-        }`}
+        className={`fixed top-1/2 right-4 transform -translate-y-1/2 z-10 ${isDesktop ? "block" : "hidden"
+          }`}
       >
         <div className="flex flex-col items-center space-y-3">
           {/* Vertical Line */}
           <div
-            className="absolute right-1/2 transform translate-x-1/2 w-[1px]" // Simplified to Tailwind class
+            className="absolute right-1/2 transform translate-x-1/2 w-[1px]"
             style={{
               height: "60vh",
               top: "20vh",
@@ -131,11 +124,10 @@ const StickySidebar = React.memo(() => {
         </div>
       </div>
 
-      {/* CSS for responsive adjustments when "Desktop site" is selected on mobile */}
       <style>{`
         @media (max-width: 767px) {
           .hidden {
-            display: none !important; /* Force hide sidebar on mobile, even in desktop mode */
+            display: none !important;
           }
         }
       `}</style>

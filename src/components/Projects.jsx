@@ -152,9 +152,9 @@ const ProjectCard = ({ project, index }) => {
         <img
           src={project.image}
           alt={project.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 blur-[2px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/40 opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
       </div>
 
       <div
