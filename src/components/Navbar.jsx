@@ -1,3 +1,4 @@
+// Cache bust: v1.0.1
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -77,8 +78,8 @@ const Navbar = React.memo(({ scrollToSection }) => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled
-          ? "bg-[#013220]/90 backdrop-blur-xl border-b border-white/10 shadow-2xl py-4"
-          : "bg-transparent py-6"
+        ? "bg-[#013220]/90 backdrop-blur-xl border-b border-white/10 shadow-2xl py-4"
+        : "bg-transparent py-6"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
