@@ -18,7 +18,7 @@ const projects = [
   {
     name: "ExamMaster",
     image: examMasterImage,
-    technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />],
+    technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFCA28" />],
     github: "https://github.com/khalipha010/ExamMaster",
     live: "https://exam-master-edu.vercel.app/",
     description: "A comprehensive exam preparation platform."
@@ -26,7 +26,7 @@ const projects = [
   {
     name: "MiniBlog",
     image: miniBlogImage,
-    technologies: [<FaReact color="#61DAFB" />, <SiPostgresql color="#336791" />, <FaNodeJs color="#3C873A" />],
+    technologies: [<FaReact color="#61DAFB" />, <SiPostgresql color="#4169E1" />, <FaNodeJs color="#68A063" />],
     github: "https://github.com/khalipha010/mini-blog-frontend",
     live: "https://mini-blog-frontend-nine.vercel.app/",
     description: "A lightweight blogging platform with rich text editing."
@@ -58,7 +58,7 @@ const projects = [
   {
     name: "Chat App",
     image: chatImage,
-    technologies: [<SiFlutter color="#02569B" />, <SiDart color="#00C4B3" />, <SiFirebase color="#FFA611" />],
+    technologies: [<SiFlutter color="#02569B" />, <SiDart color="#0175C2" />, <SiFirebase color="#FFCA28" />],
     github: "https://github.com/khalipha010/ChatApp",
     live: "https://khalipha010.github.io/KhalifaJibreel.github.io/#/",
     description: "Real-time messaging application."
