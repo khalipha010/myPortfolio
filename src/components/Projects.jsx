@@ -169,9 +169,18 @@ const ProjectCard = ({ project, index }) => {
         <div className="flex items-center justify-between">
           <div className="flex gap-3">
             {project.technologies.map((tech, i) => (
-              <div key={i} className="bg-white/10 p-2 rounded-full backdrop-blur-md">
-                {tech}
-              </div>
+              <motion.div 
+                key={i} 
+                className="relative bg-gradient-to-br from-white/20 to-white/5 p-2.5 rounded-xl backdrop-blur-md border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className="relative z-10">
+                  {tech}
+                </div>
+                {/* Subtle glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
             ))}
           </div>
 
