@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { FaReact, FaGithub, FaNodeJs } from "react-icons/fa";
 import { SiFirebase, SiDart, SiFlutter, SiPostgresql } from "react-icons/si";
@@ -156,58 +156,11 @@ const ProjectCard = ({ project, index }) => {
 };
 
 const Projects = () => {
-  const [splashes, setSplashes] = useState([]);
-
-  const getRandomGradient = useMemo(() => {
-    const colors = [
-      "rgba(16, 185, 129, 0.4)", // Emerald
-      "rgba(20, 184, 166, 0.4)", // Teal
-      "rgba(52, 211, 153, 0.4)", // Light Emerald
-    ];
-    return () => {
-      const color1 = colors[Math.floor(Math.random() * colors.length)];
-      const color2 = colors[Math.floor(Math.random() * colors.length)];
-      return `radial-gradient(circle, ${color1}, ${color2}, transparent)`;
-    };
-  }, []);
-
-  const handleInteraction = (event) => {
-    const { clientX, clientY } = event;
-    const newSplash = {
-      x: clientX,
-      y: clientY,
-      id: Date.now(),
-      gradient: getRandomGradient(),
-    };
-
-    setSplashes((prev) => [...prev, newSplash]);
-
-    setTimeout(() => {
-      setSplashes((prev) => prev.filter((s) => s.id !== newSplash.id));
-    }, 1000);
-  };
-
   return (
     <section
       id="projects"
       className="min-h-screen px-6 py-24 relative overflow-hidden bg-gradient-to-br from-[#013220] via-[#0a3a3a] to-[#0a192f]"
-      onClick={handleInteraction}
-      onMouseMove={handleInteraction}
     >
-      {/* Splash Effect */}
-      {splashes.map((splash) => (
-        <div
-          key={splash.id}
-          className="splash absolute w-[150px] h-[150px] rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2 blur-3xl opacity-50"
-          style={{
-            left: splash.x,
-            top: splash.y,
-            background: splash.gradient,
-            zIndex: 0
-          }}
-        />
-      ))}
-
       <div className="w-full max-w-6xl mx-auto relative z-10">
         <motion.div
           className="mb-20 text-center"
