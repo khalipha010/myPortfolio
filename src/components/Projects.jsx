@@ -54,7 +54,7 @@ const ProjectCard = ({ project, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.1 }}
       viewport={{ once: true, margin: "-100px" }}
-      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center mb-24 last:mb-0`}
+      className={`flex flex-col-reverse ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center mb-24 last:mb-0`}
     >
       {/* Project Card - Contains all info */}
       <motion.div
@@ -190,7 +190,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="min-h-screen px-6 py-24 relative overflow-hidden bg-gradient-to-br from-[#013220] via-[#0a192f] to-[#001a12]"
+      className="min-h-screen px-6 py-24 relative overflow-hidden bg-gradient-to-br from-[#013220] via-[#0a3a3a] to-[#0a192f]"
       onClick={handleInteraction}
       onMouseMove={handleInteraction}
     >
