@@ -5,12 +5,8 @@ import { SiFirebase, SiDart, SiFlutter, SiPostgresql } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 
 // Import images
-import chatImage from "../assets/chat.png";
-import weatherAppImage from "../assets/WeatherApp.jpg";
 import examMasterImage from "../assets/ExamMaster.png";
-import portfolioImage from "../assets/portfolio.png";
 import miniBlogImage from "../assets/MiniBlog.png";
-import myPortfolioImage from "../assets/MyPortfolio.png";
 import bizCoachImage from "../assets/BizCoach.png";
 import jobTracker from "../assets/jobTracker.png";
 
@@ -46,38 +42,6 @@ const projects = [
     github: "https://github.com/khalipha010/jobtracker_frontend",
     live: "https://jobtracker-frontend-eta.vercel.app/",
     description: "Track job applications and interview status."
-  },
-  {
-    name: "MyPortfolio",
-    image: myPortfolioImage,
-    technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />],
-    github: "https://github.com/khalipha010/myPortfolio",
-    live: "https://khaliphajibreel.vercel.app/",
-    description: "The portfolio you are currently viewing."
-  },
-  {
-    name: "Chat App",
-    image: chatImage,
-    technologies: [<SiFlutter color="#02569B" />, <SiDart color="#00B4AB" />, <SiFirebase color="#FFC107" />],
-    github: "https://github.com/khalipha010/ChatApp",
-    live: "https://khalipha010.github.io/KhalifaJibreel.github.io/#/",
-    description: "Real-time messaging application."
-  },
-  {
-    name: "Weather App",
-    image: weatherAppImage,
-    technologies: [<SiFlutter color="#02569B" />, <SiDart color="#00C4B3" />, <SiFirebase color="#FFA611" />],
-    github: "https://github.com/khalipha010/World-Time-App",
-    live: "",
-    description: "Global weather forecasts and time zones."
-  },
-  {
-    name: "Responsive Flutter Site",
-    image: portfolioImage,
-    technologies: [<SiFlutter color="#02569B" />, <SiDart color="#00C4B3" />, <SiFirebase color="#FFA611" />],
-    github: "",
-    live: "https://khalipha-jibreel.web.app/#/",
-    description: "A fully responsive website built with Flutter Web."
   },
 ];
 
