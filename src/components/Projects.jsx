@@ -54,70 +54,101 @@ const ProjectCard = ({ project, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.1 }}
       viewport={{ once: true, margin: "-100px" }}
-      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 items-center mb-24 last:mb-0`}
+      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-stretch mb-24 last:mb-0`}
     >
-      {/* Image Section */}
-      <div className="w-full lg:w-3/5 group">
-        <div className="relative rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
-          <div className="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+      {/* Project Card - Contains all info */}
+      <motion.div
+        className="w-full lg:w-1/2 group"
+        whileHover={{ y: -8 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="h-full bg-gradient-to-br from-[#112240]/95 via-[#0a192f]/95 to-[#112240]/95 backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-500 relative overflow-hidden">
+          {/* Animated gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+          {/* Glow effect */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+
+          <div className="relative z-10 flex flex-col h-full">
+            {/* Header */}
+            <div className="mb-6">
+              <span className="text-emerald-400 font-mono text-sm tracking-wider mb-3 block">Featured Project</span>
+              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors duration-300">
+                {project.name}
+              </h3>
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-300 leading-relaxed mb-6 flex-grow">
+              {project.description}
+            </p>
+
+            {/* Technologies */}
+            <div className="flex flex-wrap gap-3 mb-6">
+              {project.technologies.map((tech, i) => (
+                <motion.div
+                  key={i}
+                  className="relative bg-gradient-to-br from-emerald-500/20 to-teal-500/20 p-3 rounded-xl backdrop-blur-md border border-emerald-400/30 shadow-lg hover:shadow-emerald-500/30 transition-all duration-300"
+                  whileHover={{ scale: 1.15, y: -3, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <div className="text-2xl">
+                    {tech}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Links */}
+            <div className="flex gap-5 pt-4 border-t border-white/10">
+              {project.github && (
+                <motion.a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors group/link"
+                  aria-label="GitHub"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaGithub size={24} />
+                  <span className="text-sm font-medium opacity-0 group-hover/link:opacity-100 transition-opacity">View Code</span>
+                </motion.a>
+              )}
+              {project.live && (
+                <motion.a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors group/link"
+                  aria-label="Live Demo"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FiExternalLink size={24} />
+                  <span className="text-sm font-medium opacity-0 group-hover/link:opacity-100 transition-opacity">Live Demo</span>
+                </motion.a>
+              )}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Project Image */}
+      <div className="w-full lg:w-1/2 group/image">
+        <div className="h-full relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+          {/* Hover overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-500 z-10" />
+
+          {/* Image */}
           <img
             src={project.image}
             alt={project.name}
-            className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105 group-hover:rotate-1"
+            className="w-full h-full object-cover transform transition-transform duration-700 group-hover/image:scale-110"
           />
-          {/* Overlay for mobile/hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#013220] via-transparent to-transparent opacity-60 lg:opacity-0 lg:group-hover:opacity-40 transition-opacity duration-300" />
-        </div>
-      </div>
 
-      {/* Content Section */}
-      <div className="w-full lg:w-2/5 flex flex-col gap-6">
-        <div className={`flex flex-col ${isEven ? "lg:items-start lg:text-left" : "lg:items-end lg:text-right"}`}>
-          <span className="text-emerald-400 font-mono text-sm tracking-wider mb-2">Featured Project</span>
-          <h3 className="text-3xl font-bold text-white mb-4">{project.name}</h3>
-
-          <div className={`bg-[#112240]/90 backdrop-blur-md p-6 rounded-lg shadow-xl border border-white/5 text-gray-300 leading-relaxed mb-6 ${isEven ? "lg:-ml-16 z-20" : "lg:-mr-16 z-20"}`}>
-            {project.description}
-          </div>
-
-          {/* Technologies */}
-          <div className={`flex flex-wrap gap-3 mb-6 ${isEven ? "justify-start" : "justify-end"}`}>
-            {project.technologies.map((tech, i) => (
-              <motion.div
-                key={i}
-                className="relative bg-gradient-to-br from-white/10 to-white/5 p-2.5 rounded-xl backdrop-blur-md border border-white/20 shadow-lg hover:shadow-emerald-500/20 transition-all duration-300"
-                whileHover={{ scale: 1.1, y: -2 }}
-              >
-                {tech}
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Links */}
-          <div className={`flex gap-4 ${isEven ? "justify-start" : "justify-end"}`}>
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-emerald-400 transition-colors"
-                aria-label="GitHub"
-              >
-                <FaGithub size={24} />
-              </a>
-            )}
-            {project.live && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-emerald-400 transition-colors"
-                aria-label="Live Demo"
-              >
-                <FiExternalLink size={24} />
-              </a>
-            )}
-          </div>
+          {/* Bottom gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f]/60 via-transparent to-transparent" />
         </div>
       </div>
     </motion.div>
