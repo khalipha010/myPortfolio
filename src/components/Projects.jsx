@@ -5,12 +5,9 @@ import { SiFirebase, SiDart, SiFlutter, SiPostgresql } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 
 // Import images
-import chatImage from "../assets/chat.png";
-import weatherAppImage from "../assets/WeatherApp.jpg";
+
 import examMasterImage from "../assets/ExamMaster.png";
-import portfolioImage from "../assets/portfolio.png";
 import miniBlogImage from "../assets/MiniBlog.png";
-import myPortfolioImage from "../assets/MyPortfolio.png";
 import bizCoachImage from "../assets/BizCoach.png";
 import jobTracker from "../assets/jobTracker.png";
 
