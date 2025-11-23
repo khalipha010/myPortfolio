@@ -1,16 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for programmatic navigation
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
-  const navigate = useNavigate(); // Initialize useNavigate for navigation
+  const navigate = useNavigate();
 
   const handleKhaliphaClick = () => {
-    navigate("/adminlogin"); // Navigate to the AdminLogin page
+    navigate("/admin"); // Navigate to the AdminLogin page
   };
 
   return (
     <footer className="w-full py-6 text-center text-white bg-[#013220]">
-      <div className="max-w-6xl mx-auto px-6"> {/* Container with max-width and padding */}
+      <div className="max-w-6xl mx-auto px-6">
         <p className="text-lg">
           Built by{" "}
           <span
@@ -24,19 +24,19 @@ const Footer = () => {
         </p>
         <p className="text-sm mt-2">
           Designed and inspired by{" "}
-          <a 
-            href="https://v4.brittanychiang.com/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://v4.brittanychiang.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-green-400! hover:underline ml-1"
           >
             Brittany Chiang
           </a>
           {" & "}
-          <a 
-            href="https://ebukathedev.vercel.app/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="https://ebukathedev.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-green-400! hover:underline ml-1"
           >
             Ebuka Ejiofor
