@@ -88,7 +88,7 @@ const Employ = React.memo(() => {
   if (isLoading && !document.getElementById("home-content")) {
     return (
       <motion.div
-        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#013220] via-[#0a3a3a] to-[#0a192f] text-white"
+        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0a192f] via-[#0a3a3a] to-[#013220] text-white"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -100,7 +100,7 @@ const Employ = React.memo(() => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#013220] via-[#0a3a3a] to-[#0a192f] text-white relative overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#0a192f] via-[#0a3a3a] to-[#013220] text-white relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -151,7 +151,7 @@ const Employ = React.memo(() => {
           {/* Loading Animation for Back Navigation */}
           {isLoading && document.getElementById("home-content") && (
             <motion.div
-              className="fixed inset-0 bg-gradient-to-br from-[#013220] via-[#0a3a3a] to-[#0a192f] flex items-center justify-center z-50"
+              className="fixed inset-0 bg-gradient-to-b from-[#0a192f] via-[#0a3a3a] to-[#013220] flex items-center justify-center z-50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
