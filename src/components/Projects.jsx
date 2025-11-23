@@ -169,8 +169,8 @@ const ProjectCard = ({ project, index }) => {
         <div className="flex items-center justify-between">
           <div className="flex gap-3">
             {project.technologies.map((tech, i) => (
-              <div key={i} className="bg-black/60 p-2 rounded-full backdrop-blur-md border border-white/20">
-                {React.cloneElement(tech, { size: 18, color: "#ffffff" })}
+              <div key={i} className="bg-white/10 p-2 rounded-full backdrop-blur-md">
+                {tech}
               </div>
             ))}
           </div>
