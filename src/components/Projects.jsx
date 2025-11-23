@@ -54,7 +54,7 @@ const ProjectCard = ({ project, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.1 }}
       viewport={{ once: true, margin: "-100px" }}
-      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-stretch mb-24 last:mb-0`}
+      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center mb-24 last:mb-0`}
     >
       {/* Project Card - Contains all info */}
       <motion.div
@@ -135,8 +135,8 @@ const ProjectCard = ({ project, index }) => {
       </motion.div>
 
       {/* Project Image */}
-      <div className="w-full lg:w-1/2 group/image">
-        <div className="h-full relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+      <div className="w-full lg:w-1/2 flex items-center group/image">
+        <div className="w-full relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
           {/* Hover overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-500 z-10" />
 
@@ -144,11 +144,11 @@ const ProjectCard = ({ project, index }) => {
           <img
             src={project.image}
             alt={project.name}
-            className="w-full h-full object-cover transform transition-transform duration-700 group-hover/image:scale-110"
+            className="w-full h-auto object-cover transform transition-transform duration-700 group-hover/image:scale-110"
           />
 
           {/* Bottom gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f]/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#013220]/60 via-transparent to-transparent" />
         </div>
       </div>
     </motion.div>
@@ -190,7 +190,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="min-h-screen px-6 py-24 relative overflow-hidden bg-[#0a192f]"
+      className="min-h-screen px-6 py-24 relative overflow-hidden bg-gradient-to-br from-[#013220] via-[#0a192f] to-[#001a12]"
       onClick={handleInteraction}
       onMouseMove={handleInteraction}
     >
