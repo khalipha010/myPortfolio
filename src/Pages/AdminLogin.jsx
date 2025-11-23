@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase"; // Import Firebase auth from your firebase.js
+import { auth } from "../firebase";
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion";
 
 const AdminLogin = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -19,10 +19,9 @@ const AdminLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Clear any previous errors
+    setError("");
 
     try {
-      // Attempt to sign in with Firebase Authentication
       const userCredential = await signInWithEmailAndPassword(
         auth,
         credentials.email,
@@ -30,7 +29,7 @@ const AdminLogin = () => {
       );
 
       // If successful, navigate to AdminDashboard
-      navigate("/admindashboard");
+      navigate("/dashboard");
     } catch (error) {
       // Handle authentication errors
       switch (error.code) {
@@ -59,23 +58,23 @@ const AdminLogin = () => {
   };
 
   const handleBackToHome = () => {
-    navigate("/"); // Navigate back to the home page
+    navigate("/");
   };
 
   return (
     <div className="min-h-screen bg-[#013220] text-white flex flex-col items-start justify-center p-4 md:p-6">
-      {/* Back to Home Button (Outside the form, aligned to the left) */}
+      {/* Back to Home Button */}
       <motion.button
         onClick={handleBackToHome}
         className="mb-4 px-4 py-2 border border-white! rounded-lg text-white bg-[#013220] hover:bg-white hover:text-[#013220] transition"
-        whileHover={{ scale: 1.03 }} // Lighter hover effect
+        whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.95 }}
-        transition={{ duration: 0.2 }} // Faster transition
+        transition={{ duration: 0.2 }}
       >
         ← Back to Home
       </motion.button>
 
-      {/* Form Container (Centered on the page) */}
+      {/* Form Container */}
       <div className="w-full flex justify-center">
         <motion.div
           className="max-w-md p-4 md:p-6 bg-[#001F14] rounded-2xl border border-white/10 shadow-lg"
@@ -119,20 +118,20 @@ const AdminLogin = () => {
               <p className="text-red-400 text-sm text-center">{error}</p>
             )}
 
-            {/* Submit Button with Enhanced Shining Effect and White Border */}
+            {/* Submit Button */}
             <div className="flex justify-center">
               <motion.button
                 type="submit"
                 className="px-3 py-1.5 border-2 border-white! rounded-lg text-white bg-transparent hover:bg-white hover:text-[#013220] transition text-sm md:text-base relative overflow-hidden"
-                whileHover={{ scale: 1.05 }} // Slightly enhanced hover effect
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }} // Faster transition
+                transition={{ duration: 0.2 }}
               >
                 <motion.span
                   className="absolute top-0 left-0 w-full h-full shine-effect"
                   initial={{ x: "-150%" }}
                   animate={{ x: "150%" }}
-                  transition={{ duration: 1, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }} // Slightly faster shine for emphasis
+                  transition={{ duration: 1, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }}
                 />
                 Login
               </motion.button>
@@ -150,6 +149,25 @@ const AdminLogin = () => {
           </form>
         </motion.div>
       </div>
+
+      {/* Shine Effect CSS */}
+      <style>{`
+        .shine-effect {
+          background: linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          width: 60%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          transform: skewX(-20deg);
+          pointer-events: none;
+          z-index: 0;
+        }
+      `}</style>
     </div>
   );
 };
