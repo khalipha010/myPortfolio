@@ -139,7 +139,7 @@ const Navbar = React.memo(({ scrollToSection }) => {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-0 bg-[#013220]/95 backdrop-blur-2xl z-40 flex flex-col justify-center items-center md:hidden"
+            className="fixed top-0 left-0 right-0 bottom-0 h-screen w-screen bg-[#013220]/95 backdrop-blur-2xl z-40 flex flex-col justify-center items-center md:hidden"
           >
             <ul className="flex flex-col space-y-8 text-center">
               {navLinks.map((link, i) => (

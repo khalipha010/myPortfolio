@@ -65,7 +65,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen w-full px-6 py-20 relative overflow-hidden flex items-center justify-center"
+      className="min-h-screen w-full px-6 py-20 relative overflow-hidden flex items-center justify-center bg-gradient-to-b from-[#0a192f] via-[#0a3a3a] to-[#013220]"
       onClick={handleInteraction}
       onMouseMove={handleInteraction}
       onTouchStart={handleInteraction}
