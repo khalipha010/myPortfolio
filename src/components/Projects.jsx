@@ -1,11 +1,10 @@
-import React, { useState, useMemo, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import React, { useState, useMemo } from "react";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import { FaReact, FaGithub, FaNodeJs } from "react-icons/fa";
 import { SiFirebase, SiDart, SiFlutter, SiPostgresql } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 
 // Import images
-
 import examMasterImage from "../assets/ExamMaster.png";
 import miniBlogImage from "../assets/MiniBlog.png";
 import bizCoachImage from "../assets/BizCoach.png";
@@ -18,7 +17,7 @@ const projects = [
     technologies: [<FaReact color="#00D8FF" />, <SiFirebase color="#FFC107" />],
     github: "https://github.com/khalipha010/ExamMaster",
     live: "https://exam-master-edu.vercel.app/",
-    description: "A comprehensive exam preparation platform."
+    description: "A comprehensive exam preparation platform designed to help students master their subjects through interactive tests and real-time progress tracking."
   },
   {
     name: "MiniBlog",
@@ -26,139 +25,85 @@ const projects = [
     technologies: [<FaReact color="#00D8FF" />, <SiPostgresql color="#336791" />, <FaNodeJs color="#8CC84B" />],
     github: "https://github.com/khalipha010/mini-blog-frontend",
     live: "https://mini-blog-frontend-nine.vercel.app/",
-    description: "A lightweight blogging platform with rich text editing."
+    description: "A lightweight, feature-rich blogging platform offering a seamless writing experience with rich text editing and instant publishing capabilities."
   },
   {
     name: "BizCoach",
     image: bizCoachImage,
-    technologies: [<FaReact color="#61DAFB" />, <SiFirebase color="#FFA611" />],
+    technologies: [<FaReact color="#00D8FF" />, <SiFirebase color="#FFC107" />],
     github: "https://github.com/khalipha010/bizcoach-ai",
     live: "https://bizcoach-ai.vercel.app/",
-    description: "AI-powered business coaching assistant."
+    description: "An AI-powered business coaching assistant that provides personalized strategies and insights to help entrepreneurs grow their businesses."
   },
   {
     name: "JobTracker",
     image: jobTracker,
-    technologies: [<FaReact color="#61DAFB" />, <SiPostgresql color="#336791" />, <FaNodeJs color="#3C873A" />],
+    technologies: [<FaReact color="#00D8FF" />, <SiPostgresql color="#336791" />, <FaNodeJs color="#8CC84B" />],
     github: "https://github.com/khalipha010/jobtracker_frontend",
     live: "https://jobtracker-frontend-eta.vercel.app/",
-    description: "Track job applications and interview status."
+    description: "A streamlined application for tracking job applications, interview schedules, and application statuses to keep your job search organized."
   },
 ];
 
 const ProjectCard = ({ project, index }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useTransform(y, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
-  const rotateY = useTransform(x, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-
-    const mouseXFromCenter = e.clientX - rect.left - width / 2;
-    const mouseYFromCenter = e.clientY - rect.top - height / 2;
-
-    x.set(mouseXFromCenter / width);
-    y.set(mouseYFromCenter / height);
-
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
-  const glareBackground = useTransform(
-    [mouseX, mouseY],
-    ([latestX, latestY]) =>
-      `radial-gradient(
-        600px circle at ${latestX}px ${latestY}px,
-        rgba(255, 255, 255, 0.1),
-        transparent 40%
-      )`
-  );
+  const isEven = index % 2 === 0;
 
   return (
     <motion.div
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="relative w-full h-[400px] rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm group cursor-pointer"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: 0.1 }}
+      viewport={{ once: true, margin: "-100px" }}
+      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 items-center mb-24 last:mb-0`}
     >
-      {/* Glare Effect */}
-      <motion.div
-        className="absolute inset-0 rounded-2xl z-50 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{
-          background: glareBackground,
-        }}
-      />
-
-      <div
-        style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d" }}
-        className="absolute inset-4 rounded-xl overflow-hidden shadow-2xl"
-      >
-        <img
-          src={project.image}
-          alt={project.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 blur-[2px]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/40 opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+      {/* Image Section */}
+      <div className="w-full lg:w-3/5 group">
+        <div className="relative rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+          <div className="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+          <img
+            src={project.image}
+            alt={project.name}
+            className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105 group-hover:rotate-1"
+          />
+          {/* Overlay for mobile/hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#013220] via-transparent to-transparent opacity-60 lg:opacity-0 lg:group-hover:opacity-40 transition-opacity duration-300" />
+        </div>
       </div>
 
-      <div
-        style={{ transform: "translateZ(50px)" }}
-        className="absolute bottom-8 left-8 right-8 z-20"
-      >
-        <h3 className="text-2xl font-bold text-white mb-2">{project.name}</h3>
-        <p className="text-gray-300 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
-          {project.description}
-        </p>
+      {/* Content Section */}
+      <div className="w-full lg:w-2/5 flex flex-col gap-6">
+        <div className={`flex flex-col ${isEven ? "lg:items-start lg:text-left" : "lg:items-end lg:text-right"}`}>
+          <span className="text-emerald-400 font-mono text-sm tracking-wider mb-2">Featured Project</span>
+          <h3 className="text-3xl font-bold text-white mb-4">{project.name}</h3>
 
-        <div className="flex items-center justify-between">
-          <div className="flex gap-3">
+          <div className={`bg-[#112240]/90 backdrop-blur-md p-6 rounded-lg shadow-xl border border-white/5 text-gray-300 leading-relaxed mb-6 ${isEven ? "lg:-ml-16 z-20" : "lg:-mr-16 z-20"}`}>
+            {project.description}
+          </div>
+
+          {/* Technologies */}
+          <div className={`flex flex-wrap gap-3 mb-6 ${isEven ? "justify-start" : "justify-end"}`}>
             {project.technologies.map((tech, i) => (
               <motion.div
                 key={i}
-                className="relative bg-gradient-to-br from-white/20 to-white/5 p-2.5 rounded-xl backdrop-blur-md border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="relative bg-gradient-to-br from-white/10 to-white/5 p-2.5 rounded-xl backdrop-blur-md border border-white/20 shadow-lg hover:shadow-emerald-500/20 transition-all duration-300"
                 whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
               >
-                <div className="relative z-10">
-                  {tech}
-                </div>
-                {/* Subtle glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {tech}
               </motion.div>
             ))}
           </div>
 
-          <div className="flex gap-3">
+          {/* Links */}
+          <div className={`flex gap-4 ${isEven ? "justify-start" : "justify-end"}`}>
             {project.github && (
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-black/60 rounded-full hover:bg-emerald-500 hover:text-white transition-colors backdrop-blur-md border border-white/20"
-                aria-label="View Source Code"
+                className="text-white hover:text-emerald-400 transition-colors"
+                aria-label="GitHub"
               >
-                <FaGithub size={20} color="#ffffff" />
+                <FaGithub size={24} />
               </a>
             )}
             {project.live && (
@@ -166,10 +111,10 @@ const ProjectCard = ({ project, index }) => {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-black/60 rounded-full hover:bg-emerald-500 hover:text-white transition-colors backdrop-blur-md border border-white/20"
-                aria-label="View Live Demo"
+                className="text-white hover:text-emerald-400 transition-colors"
+                aria-label="Live Demo"
               >
-                <FiExternalLink size={20} color="#ffffff" />
+                <FiExternalLink size={24} />
               </a>
             )}
           </div>
@@ -184,10 +129,9 @@ const Projects = () => {
 
   const getRandomGradient = useMemo(() => {
     const colors = [
-      "rgba(16, 185, 129, 0.8)", // Emerald
-      "rgba(20, 184, 166, 0.8)", // Teal
-      "rgba(52, 211, 153, 0.8)", // Light Emerald
-      "rgba(45, 212, 191, 0.8)", // Light Teal
+      "rgba(16, 185, 129, 0.4)", // Emerald
+      "rgba(20, 184, 166, 0.4)", // Teal
+      "rgba(52, 211, 153, 0.4)", // Light Emerald
     ];
     return () => {
       const color1 = colors[Math.floor(Math.random() * colors.length)];
@@ -215,17 +159,15 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="min-h-screen px-6 py-20 relative overflow-hidden flex items-center justify-center"
+      className="min-h-screen px-6 py-24 relative overflow-hidden bg-[#0a192f]"
       onClick={handleInteraction}
       onMouseMove={handleInteraction}
-      onTouchStart={handleInteraction}
-      onTouchMove={handleInteraction}
     >
       {/* Splash Effect */}
       {splashes.map((splash) => (
         <div
           key={splash.id}
-          className="splash absolute w-[100px] h-[100px] rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2"
+          className="splash absolute w-[150px] h-[150px] rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2 blur-3xl opacity-50"
           style={{
             left: splash.x,
             top: splash.y,
@@ -235,29 +177,24 @@ const Projects = () => {
         />
       ))}
 
-      <div className="w-full max-w-7xl mx-auto relative z-10">
+      <div className="w-full max-w-6xl mx-auto relative z-10">
         <motion.div
-          className="mb-16 text-center md:text-left"
+          className="mb-20 text-center"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-emerald-400 font-mono text-lg">02.</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-2">Featured Projects</h2>
+          <span className="text-emerald-400 font-mono text-lg block mb-2">02.</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white">Some Things I've Built</h2>
+          <div className="w-20 h-1 bg-emerald-500 mx-auto mt-4 rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
+        <div className="flex flex-col">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
       </div>
-
-      <style>{`
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-      `}</style>
     </section>
   );
 };
